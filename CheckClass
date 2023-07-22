@@ -1,0 +1,51 @@
+export  class Person {
+    constructor(name, age) {
+      this.name = name;
+      this.age = age;
+    }
+  
+    sayHello() {
+      console.log(`Привет, меня зовут ${this.name} и мне ${this.age} лет.`);
+    }
+  
+    // Дополнительное перечислимое свойство
+    get occupation() {
+      return "Неизвестно";
+    }
+  }
+  
+  class Teacher extends Person {
+    constructor(name, age, subject) {
+      super(name, age);
+      this.subject = subject;
+    }
+  
+    sayHello() {
+      console.log(`Привет, меня зовут ${this.name}, мне ${this.age} лет и я преподаю ${this.subject}.`);
+    }
+  }
+  
+  class Student extends Person {
+    constructor(name, age, grade) {
+      super(name, age);
+      this.grade = grade;
+    }
+  
+    sayHello() {
+      console.log(`Привет, меня зовут ${this.name}, мне ${this.age} лет и я учусь в ${this.grade} классе.`);
+    }
+  
+    // Дополнительное перечислимое метод-свойство
+    get hobbies() {
+      return ["Чтение", "Спорт", "Готовка"];
+    }
+  }
+  
+  // Создадим экземпляры классов
+  const person = new Person("Иван", 30);
+  const teacher = new Teacher("Алиса", 40, "Математика");
+  const student = new Student("Боб", 18, 12);
+  
+  // Введите "Person" в поле ввода и нажмите кнопку, чтобы увидеть цепочку прототипов и перечислимые свойства для класса Person.
+  // Затем можно также проверить для классов Teacher (Учитель) и Student (Ученик), введя их названия в поле ввода и нажав кнопку.
+  

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Цепочка наследования</title>
+    <style>
+        /* 1 стиль(класс) */
+      .error {
+        border: 2px solid red;
+      }
+      li{
+        cursor: pointer;
+      }
+      li:hover{
+        color: blue;
+      }
+      .txt{
+        color: rgb(76, 76, 76);
+        opacity: 0.3;
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <label for="classInput">Введите название класса или функции:</label>
+    <input type="text" id="classInput" />
+    <button id="button">Показать цепочку прототипов</button>
+    <div id="output"></div>
+    <p class="txt">введите любое название класса,  который содержится в глобальном объекте window.
+        например Array, Date, Object, HTMLElement или классы которые были насильно добавлены в window, это Person, Teacher, Student
+    </p>
+
+    <script src="./script.js" type="module"></script>
+  </body>
+</html>
