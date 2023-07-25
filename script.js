@@ -29,39 +29,45 @@ function showPrototypeChain() {
     const listItem = document.createElement("li");
     const constructorName =
       prototypeChain[i].constructor.name || "Без названия";
-    const consType = typeof constructorName
-    listItem.textContent = `${constructorName} : ${consType} `;
+    listItem.textContent = `${constructorName}:`;
 
-    const protoMethods = Object.getOwnPropertyNames(prototypeChain[i]);
-    if (protoMethods.length > 0) {
+    const protoProperties = Object.getOwnPropertyNames(prototypeChain[i]);
+    console.log(prototypeChain[i]);
+
+    // for (p in prototypeChain[i]) {
+    //   console.log(p);
+    // }
+
+    // console.log(Object.keys(prototypeChain[i]))
+    if (protoProperties.length > 0) {
       const nestedOl = document.createElement("ol");
-      for (const method of protoMethods) {
+      for (const prop of protoProperties) {
         const nestedListItem = document.createElement("li");
-        const methodType = typeof method;
-        nestedListItem.textContent = `${method}: ${methodType}`;
+        const propValue = prototypeChain[i][prop];
+        const propType = typeof propValue;
+        nestedListItem.textContent = `${prop}: ${propType}`;
         nestedOl.appendChild(nestedListItem);
       }
+
       listItem.addEventListener("click", () => {
-        if (nestedOl.style.display === "none") {
+        if (nestedOl.style.display == "none") {
           nestedOl.style.display = "block";
         } else {
           nestedOl.style.display = "none";
         }
       });
 
-      
       nestedOl.style.display = "none";
 
       listItem.appendChild(nestedOl);
     }
-
-    
 
     ol.appendChild(listItem);
   }
 
   output.appendChild(ol);
 }
+
 //
 //Проверочные классы присвоенные в window, не относится к заданию. Для проверки: Person Teacher Student
 //
